@@ -386,10 +386,4 @@ if __name__ == '__main__':
     print(list_missed_days)
     delete_dummy(conn)
 
-    # test for single date
-
-    #event, birth, death = download_from_wiki(page="January_1")
-    #insert_data_into_db(event)
-    #insert_data_into_db(birth)
-    #insert_data_into_db(death)
     print("Ready!")
