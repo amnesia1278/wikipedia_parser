@@ -4,4 +4,5 @@ The programm gets an information about events, deaths, and births from Wikipedia
 
 
 -------------
-I missed a step of database creation. Create it by yourself for using. 
+Database was created with SQLiteStudio. Therefore, I missed a step of database creation. 
+Create it by yourself for using. 
