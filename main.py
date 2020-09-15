@@ -59,7 +59,6 @@ def get_all_days():
 
 def split_string_into_name_and_description(s: str):
     """
-
     :param s: string
     :return: name and description for tables "birth" and "death"
     """
@@ -93,25 +92,12 @@ def check_year(year):
     if ("BC" in year):
         # Case march 17 death 45 BC
         bc = True
-    """
-    if ("BC" in year):
-        # Case march 17 death 45 BC
-        if len(year.split(" ")) >1:
-            year = year.split(" ")[0]
-        else:
-            year = year[:-2]
 
-        bc = True
-    if ("AD" in year):
-        year = year.split(" ")
-        if year[0].isdigit():
-            year = year[0]
-        else:
-            year = year[1]
-    """
+   
+    year = re.sub("[^0-9]", "", year)
+
     # check if year smaller than 1000 and padding the year with 0,00 or 000
 
-    year = re.sub("[^0-9]", "", year)
     #year = year.replace(" ", "")
     if (len(year) == 3):
         #print(year)
@@ -145,7 +131,6 @@ def check_row(s):
 
 def get_y_m_d_from_string(s):
     """
-
     :param s: string in format "YYYY-MM-DD HH:MM:SS" e.g. '2004-02-02 00:00:00'
     :return: year, month, day as integers e.g. 2004, 2, 2
     """
@@ -178,7 +163,8 @@ def gregorian_to_julian(year, month, day):
 # Load
 
 def create_table(conn, create_table_sql):
-    """ create a table from the create_table_sql statement
+    """ 
+    create a table from the create_table_sql statement
     :param conn: Connection object
     :param create_table_sql: a CREATE TABLE statement
     :return:
@@ -191,8 +177,9 @@ def create_table(conn, create_table_sql):
 
 
 def create_connection(db_file = 'WikiDatabaseTest.sqlite3'):
-    """ create a database connection to the SQLite database
-        specified by db_file
+    """ 
+    create a database connection to the SQLite database
+    specified by db_file
     :param db_file: database file
     :return: Connection object or None
     """
@@ -207,7 +194,7 @@ def create_connection(db_file = 'WikiDatabaseTest.sqlite3'):
 
 def insert_artifact(conn, artifact, type):
     """
-    Function inserts one artifact into db depending on the artifact's type (Events, Births, Deaths)
+    Insert one artifact into db depending on the artifact's type (Events, Births, Deaths)
     :param conn: connection to db
     :param artifact: values that should be written in the DB
     :param type: type of occasion: event, birth or death
